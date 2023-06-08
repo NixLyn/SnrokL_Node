@@ -269,7 +269,7 @@ TODO:<br>
 [🔸] Create Options for :<br>
 [🔹] -> Change/Create Rules<br>
 [🔹] -> View Records<br>
-[🔸] -> Live Stream Data<br>
+[🔺] -> Live Stream Data<br>
 [🔸] GPT-Integration<br>
 [🔸] -> Update DataSets<br>
 [🔸] -> Update Corpuses<br>
