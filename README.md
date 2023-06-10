@@ -89,26 +89,30 @@ You will find a terminal style wevb page, with the text input at the bottom of t
 <br>
 You have the option to use either:  
 
-<span  style="color: #00ff00; margin-left: 0px;margin-right: 0px;">cmd$ {cmd}</span>
+```
+cmd$ {cmd}
+```
 <br>
-which will run the given command and return the output <br>
-or use:
-<span  style="color: #00ff00; margin-left: 0px;margin-right: 0px;">node {option} {argv 1} {argv 2}</span> 
-<br>
-Current options for <span  style="color: #00ff00; margin-left: 0px;margin-right: 0px;">node</span> are :<br>
-<span  style="color: #00ff00; margin-left: 0px;margin-right: 0px;">
-node run {rules file} {flags}
-</span><br>
-<span  style="color: #00ff00; margin-left: 0px;margin-right: 0px;">
-node add-rule {rules file} {rule}
-</span><br>
-<span  style="color: #00ff00; margin-left: 0px;margin-right: 0px;">
-node get-stack
-</span><br>
-<span  style="color: #00ff00; margin-left: 0px;margin-right: 0px;">
-node get-file {rules file}
-</span><br>
 
+which will run the given command and return the output
+or use:
+
+
+```
+node {option} {argv 1} {argv 2}
+```
+Current options for _node_ are :
+
+```
+node run {rules file} {flags}
+
+node add-rule {rules file} {rule}
+
+node get-stack
+
+node get-file {rules file}
+
+```
 
 
 
