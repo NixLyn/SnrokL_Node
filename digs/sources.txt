@@ -1,0 +1,12 @@
+https://www.sharetechnote.com/html/C_Parse_IP.html#IPv4_Header
+
+https://www.sharetechnote.com/html/Handbook_IP_Network_Header_IPv4.bak
+
+https://docs.python.org/3/library/socket.html
+
+https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers
+
+
+
+
+
