@@ -1,7 +1,0 @@
-socket
-struct
-textwrap
-asyncio
-websockets
-subprocess
-codecs
