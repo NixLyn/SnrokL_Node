@@ -35,9 +35,23 @@
             
             /* We'll need a containers to hold some stacks of data from the node.. */
             var view_rules_data = "";
-            const view_rules_container = document.querySelector('.rules-view');
+            let view_rules_container = document.querySelector('.rules-view');
+            const update_rules = document.querySelector("#update-rules");
             var rules_open = false;
     
+            update_rules.addEventListener("click", function(){
+
+                console.log("Clicked: Update-Rules");
+                // Check that the button works first..
+                let new_rules = view_rules_container.innerHTML;
+                let toMsg = "node update rules.txt " + new_rules;
+                console.log(toMsg);
+                websocketClient.send(toMsg);
+                // Send CMD to Node
+            });
+
+
+
             console.log('[EventListener]:[Running]');
             /* Establish Connection */
             const websocketClient = new WebSocket("ws://localhost:12345");
@@ -71,12 +85,19 @@
                     websocketClient.send("get-stack DATA");
                     // Send CMD to Node
                 });
+
+
+
                 document.getElementById("view-rules").addEventListener("click", function(){
                     if (rules_open == false)
                     {
-                        console.log("Clicked: run-snrokl");
+                        console.log("\n---------------\nClicked: run-snrokl");
                         websocketClient.send("node get-file rules.txt");    
                         rules_open = true;
+                        view_rules_container.nodeType = "input";
+                        // Update "RULES.TXT"
+                        update_rules.style.display = "block";
+
                     }
     
                     else

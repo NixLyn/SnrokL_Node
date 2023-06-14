@@ -78,9 +78,20 @@ class SnrokL_Node():
                     stack_folder = str(stols_[i+1])
                     if "rules.txt" in stack_folder:
                         file_data = self.FM.read_file(stack_folder, "\n")
-                        rd = str(file_data[0]).replace("\\n", "<br>")
+                        rd = str(file_data[0]).replace("\\n", "\n") # Yeah, just leave it like this..
                         crd = rd.replace("', '", " ")
-                        ret_msg = f"{crd}"
+                        ret_msg = f"\
+                            <textarea\
+                                v-model='message'\
+                                cols='80' \
+                                rows='2' \
+                                style='\
+                                    width: 78vw; \
+                                    height: 80vh;' \
+                                id='da-rules'>\
+                                {crd} \
+                                \
+                            </textarea>"
                         return ret_msg
                     else:
                         print("Updating User - Collected File")

@@ -141,7 +141,21 @@ body{
     position: absolute;
     width: 80vw;
     height: 80vh;
-    background-color: #ff5100bd;
+    background-color: #000000;
+    color: #00ff00;
 }
+
+#update-rules{
+    display: none;
+    cursor: pointer;
+    background-color: #00ff00;
+    width: 95%;
+    height: 5vh;
+}
+
+#update-rules:hover{
+    background-color: #ffffff;
+}
+
 
 
