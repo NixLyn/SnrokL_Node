@@ -65,14 +65,26 @@ body{
 .side-bar {
     position: absolute;
     height: 90%;
-    width: 15%;
+    width: 20%;
     background-color: aqua;
     right: 0;
 }
-.side-bar ul li{
+.side-opts{
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
-
+.side-opts div{
+    width: 95%;
+    height: 35px;
+}
+.side-opts div input{
+    width: 100%;
+    height: 100%;
+}
 
 .back-log {
     height: 75vh;
@@ -111,3 +123,25 @@ body{
     width: 85%;
     color: #00ff00;
 }
+
+
+.opt_0{
+    cursor: pointer;
+    background-color: #00ff00;
+    
+}
+
+.opt_0:hover{
+    background-color: #ffffff;
+}
+
+
+.rules-view{
+    display: none;
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    background-color: #ff5100bd;
+}
+
+

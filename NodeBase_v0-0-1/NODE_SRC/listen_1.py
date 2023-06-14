@@ -2,6 +2,7 @@
 from File_Man import File_man
 from de_confuse import DeFuse_
 from port_figs import PortFig
+from IP_v_4 import IP_v_4
 
 # SYS_BASE
 import subprocess
@@ -23,6 +24,7 @@ class Listen_():
         self.FM                 = File_man()
         self.DF                 = DeFuse_()
         self.PF                 = PortFig()
+        self.IP_v4              = IP_v_4()
 
     def get_rules(self, rules_file, flags_ui):
         try:
@@ -109,9 +111,14 @@ class Listen_():
                 raw_data, addr = conn.recvfrom(65536)
 
                 # ? Get Current Date:Time
-                dt_now = f"#[DATE-TIME]:[{str(time.asctime())}]:|:[CP-#]:[{grab_count}]:|:\n"
+                rn_ = str(time.asctime())
+                dt_now = f"#[DATE-TIME]:[{rn_}]\n"
                 dest_mac, src_mac, eth_proto, data = self.PF.eth0_frame(raw_data)
                 raw_header = f"[CP-#]:[{str(grab_count)}]\n@[INIT]:[{dt_now}]:\n[SRC]:[{str(src_mac)}]->[DEST]:[{str(dest_mac)}]\n&[ETH_PROTO]:[{str(eth_proto)}]\n&[DATA]:[{str(data)}]\n\n"
+
+
+                by_8 = self.DF.by_8_bytes(raw_data, addr, mode_)
+                   
 
                 if src_ip == src_mac:
                     if "v" in mode_:
@@ -165,7 +172,6 @@ class Listen_():
                                 if "v" in mode_:
                                     print("\n\n--BeastMode--\n\t-- [DATA-HASHI]:: \n")
                                 self.DF.from_x_hex(data, grab_count, dst_ip, mode_)
-
                     else:
                         continue
 

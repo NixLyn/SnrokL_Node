@@ -33,21 +33,25 @@
 
     <section class="main-sect">
         <div class="side-bar">
-            <ul>
-                <li>
-                    --0--
-                </li>
-                <li>
-                    --0--
-                </li>
-                <li>
-                    --0--
-                </li>
-                <li>
-                    --0--
-                </li>
-            </ul>
+            <div class="side-opts">
+                <div class="opt_0" id="run-snrokl">
+                   <input type="button" value="Run SnorkL {rules.txt} {vsbr}" />
+                </div>
+                <div class="opt_0" id="get-stack">
+                    <input type="button" value="Get-Stack {DATA}" />
+                </div>
+                <div class="opt_0" id="view-rules">
+                    <input type="button" value="View-Rules" />
+
+                </div>
+                <div class="opt_0" id="live-stream">
+                    <input type="button" value="Live-Stream {all}" />
+                </div>
+            </div>
             
+        </div>
+        <div class="rules-view">
+
         </div>
         <div class="text-term">
             <div>
@@ -107,6 +111,11 @@
         const cmd_to_send = document.querySelector('[name=cmd-to-send]');
         const send_button = document.querySelector('[name=send-button]');
         const back_logmsg = document.querySelector('#back-log');
+        
+        /* We'll need a containers to hold some stacks of data from the node.. */
+        var view_rules_data = "";
+        const view_rules_container = document.querySelector('.rules-view');
+        var rules_open = false;
 
         console.log('[EventListener]:[Running]');
         /* Establish Connection */
@@ -126,6 +135,41 @@
             conn_status.style.backgroundColor = 'rgb(0, 255, 0)';
             /* And.. for the whole point of it:  */
 
+                            /*
+                    We would also like to add buttons to simplify shit..
+                */
+            document.getElementById("run-snrokl").addEventListener("click", function(){
+                console.log("Clicked: run-snrokl");
+                // Check that the button works first..
+                websocketClient.send("node run rules.txt vsbr");
+                // Send CMD to Node
+            });
+            document.getElementById("get-stack").addEventListener("click", function(){
+                console.log("Clicked: get-stack");
+                // Check that the button works first..
+                websocketClient.send("get-stack DATA");
+                // Send CMD to Node
+            });
+            document.getElementById("view-rules").addEventListener("click", function(){
+                if (rules_open == false)
+                {
+                    console.log("Clicked: run-snrokl");
+                    websocketClient.send("node get-file rules.txt");    
+                    rules_open = true;
+                }
+
+                else
+                {
+                    view_rules_container.style.display = "none";
+                    console.log("Clicked: run-snrokl");
+                    rules_open = false;
+                }
+
+            });
+            document.getElementById("live-stream").addEventListener("click", function(){
+                console.log("Clicked: live-stream");
+                websocketClient.send("node live-stream");
+            });
             /*
                 I Just got annoyed with not using "ENTER"-key as the "SEND"...
             */
@@ -143,6 +187,7 @@
                     back_logmsg.scrollTop = back_logmsg.scrollTop + back_logmsg.scrollHeight;
                     console.log(back_logmsg.scrollTop);
                 }
+
             });
 
 
@@ -177,9 +222,21 @@
                 Creating a new element inside the 'back-log'
                 container and appendingChild with the msg data
              */
-            const new_log = document.createElement('div');
-            new_log.innerHTML = msg.data+"<br>";
-            back_logmsg.appendChild(new_log);
+             let toSreach = msg.data;
+             if (toSreach.includes("RULES.TXT")){
+                console.log("\n RULES!! \n", toSreach);
+                // Add to container.. 
+                view_rules_data = toSreach;
+                view_rules_container.style.display = "block";
+                view_rules_container.innerHTML = view_rules_data;
+
+             }
+             else{
+                const new_log = document.createElement('div');
+                new_log.innerHTML = msg.data+"<br>";
+                back_logmsg.appendChild(new_log);
+             }
+
         };
 
 

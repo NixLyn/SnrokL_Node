@@ -27,17 +27,71 @@ class DeFuse_():
         self.FM                 = File_man()
 
 
+    # By 8 Bytes
+    def by_8_bytes(self, raw_data, addr, mode_):
+        try:
+            byt_size = []
+            byt_arr = []
+            header_ = self.DF.break_payload_hex_view(addr)
+            broken_ = self.DF.break_payload_hex_view(raw_data)
+            non_raw = self.DF.hex_to_ascii(broken_)
+            
+            if "r" in str(mode_):
+                print(f"[HEADER_HEX]  :[{str(header_)}]")
+                print(f"[BROKEN_HEX]  :[{str(broken_)}]")
+                print(f"[HEX_TO_ASCII]:[{str(non_raw)}]")
+        
+            byte_array = non_raw.split(" ")
+
+            for bn, ba_ in enumerate(byte_array):
+                if bn == 8:
+                    # Break into sets of 8 segments
+                    pass
+
+
+        except Exception as w:
+            print(f"[E]:[by_8_bytes_view]:[{str(w)}]")
+
+                    
+
+
+    # MEMORY VIEW
+    def break_payload_memview(self, payload_):
+        try:
+            broken = memoryview(payload_).cast('H')
+            return broken
+        except Exception as w:
+            print(f"[E]:[break_pay_memview]:[{str(w)}]")
+
+    # HEX VIEW # ! BEST !
+    def break_payload_hex_view(self, payload_):
+        try:
+            b_hex = str(payload_).split(r"\x")
+            return b_hex
+        except Exception as w:
+            print(f"[E]:[break_pay_hex_view]:[{str(w)}]")
+
+
+    def hex_to_ascii(self, data):
+        try:
+            payload_ = ""
+            for i, h in enumerate(data):
+                if i != 0:
+                    payload_ += str(h) + " "
+
+            return payload_
+        except Exception as e:
+            pass
+
+
     def from_x_hex(self, payload_, num_, file_name, mode_):
         try:
-            
             dt_now = f"[CP-#]:[{str(grab_count)}]"+"%[DATE-TIME]:"+str(time.asctime())
             header_tag = f"#[DECODE]:|:[CP-#]:[{num_}]:|:[DT]:[{dt_now}]::"
             byt_it = str(payload_).split(r"\x")
             d_sp = ""
             for it_ in byt_it:
                 d_sp += str(it_)
-
-
             met = ".split(r-'-\-x-') !(-)"
             f_sp = f"\n\t[METHOD]:[{str(met)}]\n\t[PAYLOAD]:[{str(payload_)}]\n\t[DECODE]:[{str(d_sp)}]"
 
@@ -46,20 +100,8 @@ class DeFuse_():
             if "s" in mode_:
                 self.FM.write_file("DATA/m1_"+file_name+"_decode.txt", f_sp, ";", "a+")
         except Exception as e:
-            print(f"\n\t ~~~~[E]:[FROM_xHEX_t0]:[{str(e)}]")
+            pass
 
-        try:
-            # ? Decode...
-            hashi_0 = payload_.decode('utf-16')
-            a_sp = f"#[DECODE]:[DT:[{dt_now}]::\n\t[METHOD]:[.decode('utf-16')]\n\t[CP-#]:[{num_}]\n\t[PAYLOAD]:[{payload_}]\n\t[DECODE]:[{hashi_0}]"
-            if "v" in mode_:
-                print(f"\n\t ~~~~[HASHI_16]:[{str(hashi_0)}]")
-
-            if "s" in mode_:
-                self.FM.write_file("DATA/m2_"+file_name+"_decode.txt", f_sp, ";", "a+")
-
-        except Exception as e:
-            print(f"\n\t ~~~~[E]:[FROM_xHEX_t_01]:[{str(e)}]")
 
         try:
             # ? Decode...
@@ -69,9 +111,8 @@ class DeFuse_():
                 print(f"\n\t ~~~~[CODECS_]:[{str(hashi_1)}]")
             if "s" in mode_:
                 self.FM.write_file("DATA/m3_"+file_name+"_decode.txt", b_sp, ";", "a+")
-
         except Exception as e:
-            print(f"\n\t ~~~~[E]:[FROM_xHEX_t1]:[{str(e)}]")
+            pass
 
         try:
             hashi_2 = payload_.decode('utf-8')
@@ -82,10 +123,8 @@ class DeFuse_():
                 print(f"\n\t ~~~~[CODECS_]:[{str(hashi_2)}]")
             if "s" in mode_:
                 self.FM.write_file("DATA/m3_"+file_name+"_decode.txt", c_sp, ";", "a+")
-
         except Exception as e:
-            print(f"\n\t ~~~~[E]:[FROM_xHEX_t2]:[{str(e)}]")
-
+            pass
 
 
 

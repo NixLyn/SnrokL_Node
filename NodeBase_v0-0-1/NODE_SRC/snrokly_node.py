@@ -72,18 +72,28 @@ class SnrokL_Node():
                     for k, sl in enumerate(stack_list):
                         ret_msg += f"[{str(k)}] >> {str(sl)} <br>"
                     return ret_msg
-
+                
 
                 if "get-file" in str(st_):
-                    print("Updating User - Collected File")
-                    # Read data from 'DATA' folder
-                    # -> give options to choose which file to read
                     stack_folder = str(stols_[i+1])
-                    file_data = self.FM.read_file("DATA/"+stack_folder, "\n")
-                    ret_msg = f"<br> FileData: <br> "
-                    for l, fd in enumerate(file_data):
-                        ret_msg += f"[{str(l)}] >> {str(fd)} <br>"
-                    return ret_msg
+                    if "rules.txt" in stack_folder:
+                        file_data = self.FM.read_file(stack_folder, "\n")
+                        rd = str(file_data[0]).replace("\\n", "<br>")
+                        crd = rd.replace("', '", " ")
+                        ret_msg = f"{crd}"
+                        return ret_msg
+                    else:
+                        print("Updating User - Collected File")
+                        # Read data from 'DATA' folder
+                        # -> give options to choose which file to read
+                        file_data = self.FM.read_file(stack_folder, "\n")
+                        ret_msg = f"<br> FileData: <br> "
+                        for l, fd in enumerate(file_data):
+                            fdd =str(fd).replace("\n", "<br>")
+                            ret_msg += f"[{str(l)}] >> {fdd} <br>"
+                        return ret_msg
+
+
 
 
         except Exception as e:
