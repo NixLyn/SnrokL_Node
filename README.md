@@ -1,21 +1,11 @@
-# SnrokL Node #
-
-Currently available for Kali Linux OS.
+![alt text](./rmImage/NixLyn_image.png)
 <br>
 
-```
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⢀⡀⣷
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⣿
-⠀⠀⠀⠀⠀⣧⣄⢀⡀⣠⣼⠀⠀⠀⣿⠀⠀⣿
-⠀⠀⠀⠀⠀⠀⣿⠀⠀⣿⣄⢀⡀⣠⣿⠀⠀⣿
-⠀⠀⠀⠀⠀⠀⠸⣧⠀⠀⠀⠀⠀⠀⠀⠀⣼⠏
-⠀⠀⠀⠀⠀⠀⠀⠸⣧⣿⣿⣿⣿⣿⣿⣿⠏
-
-```
+[![Twitter Badge](https://img.shields.io/badge/-@OctoWolff-1ca0f1?style=flat&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/tonyewaribo)](https://twitter.com/DillonBreytenbach) [![Mail Badge](https://img.shields.io/badge/DillonBreytenbach-e74c3c?style=flat&labelColor=e74c3c&logo=youtube&logoColor=white)](https://youtube.com/DillonBreytenbach) [![Linkedin Badge](https://img.shields.io/badge/-DillonBreytenbach-0e76a8?style=flat&labelColor=0e76a8&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/DillonBreytenbach/) [![Mail Badge](https://img.shields.io/badge/-DillonBreytenbach-e84393?style=flat&labelColor=e84393&logo=instagram&logoColor=white)](https://instagram.com/DillonBreytenbach) [![Mail Badge](https://img.shields.io/badge/-DillonBreytenbach@gmail.com-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=white)](mailto:DillonBreytenbach@gmail.com)
+<br>
+SnrokL_Node is NixLyn’s cybersecurity shell tool that gives Pupple team professionals a safe, fast and more appealing visuals to use a bash scripting  directly from the browser while still maintaing the speed the command prompt brings. SnrokL_Node works well with your already installed kali linux, this tool was developed in mind for penetration testers, SOC and GRC professionals that would love to have that same functional experience from a more friendlier screen. This is a free and open source tool.
+<br>
+for announcement about new releases, follow the NixLyn mailing list. Our Linkedin page also tracks new features and more functionality across releases.
 <br>
 
 # Getting Started  🏁  #
@@ -114,7 +104,7 @@ node get-file {rules file}
 
 ```
 
-
+![alt text](rmImage/nowcool.png)
 
 
 
