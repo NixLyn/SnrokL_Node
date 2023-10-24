@@ -32,9 +32,9 @@ class DeFuse_():
         try:
             byt_size = []
             byt_arr = []
-            header_ = self.DF.break_payload_hex_view(addr)
-            broken_ = self.DF.break_payload_hex_view(raw_data)
-            non_raw = self.DF.hex_to_ascii(broken_)
+            header_ = self.break_payload_hex_view(addr)
+            broken_ = self.break_payload_hex_view(raw_data)
+            non_raw = self.hex_to_ascii(broken_)
             
             if "r" in str(mode_):
                 print(f"[HEADER_HEX]  :[{str(header_)}]")
