@@ -1,0 +1,8 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# DATA File often contains IP:Port data. 
+#  Hence must not be pushed to github
+
+NodeBase_v0-0-1/NODE_SRC/DATA/*
